@@ -11,6 +11,9 @@ const startaddMovieButton=document.querySelector('header button') //select heade
 const backdrop = document.getElementById("backdrop")
 // const backdrop = document.getElementById('backdrop')
 
+const confrimAddMovieButton= cancelAddMovieButton.nextElementSibling
+
+const userInput = addMovieModal.querySelectorAll('input')
 const toggleBackdrop = () =>{
     backdrop.classList.toggle('visible')
 }
@@ -25,14 +28,25 @@ const backdropClickhandler = () => {
     toggleMovieModal()
 }
 
-const cancelMovie = () => {
-    toggleMovieModal()
+const cancelMovieHandler = () => {
+    toggleMovieModal() 
 }
 
-cancelAddMovieButton.addEventListener("click",cancelMovie)
+const addMovieHandler = () =>{
+  const title = userInput[0].value
+  const imageUrlValue = userInput[1].value
+  const ratingValue = userInput[2].value
 
+  //Remove extra whitespace 
+  if(title.trim() === '' || imageUrlValue.trim()==='' 
+  || ratingValue.trim()=='' || +ratingValue <1 || +ratingValue >5){
+  alert("Please enter a valid rating ")
+  return
+  }
 
+}
 
+cancelAddMovieButton.addEventListener("click",cancelMovieHandler )
 startaddMovieButton.addEventListener('click',toggleMovieModal)
-
 backdrop.addEventListener('click',toggleMovieModal)
+confrimAddMovieButton.addEventListener('click',addMovieHandler)
