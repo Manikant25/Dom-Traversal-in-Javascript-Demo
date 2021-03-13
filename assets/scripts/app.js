@@ -10,7 +10,18 @@ const backdrop = document.getElementById("backdrop")
 
 const confrimAddMovieButton= cancelAddMovieButton.nextElementSibling
 
+const entryTextSection = document.getElementById('entry-text')
+
 const movies =[]
+
+const updateUI = () =>{
+    if(movies.length===0){
+        entryTextSection.style.display='block'
+    }else{
+        entryTextSection.style.display='none'
+    }
+}
+
 const userInput = addMovieModal.querySelectorAll('input')
 const toggleBackdrop = () =>{
     backdrop.classList.toggle('visible')
@@ -58,6 +69,7 @@ movies.push(newMovie)
 console.log(movies)
 toggleMovieModal()
 clearMovieInputs()
+updateUI()
 }
 cancelAddMovieButton.addEventListener("click",cancelMovieHandler )
 startaddMovieButton.addEventListener('click',toggleMovieModal)
