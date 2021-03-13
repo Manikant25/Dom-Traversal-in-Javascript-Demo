@@ -22,6 +22,22 @@ const updateUI = () =>{
     }
 }
 
+const renderNewMovieElement = (title,imageUrlValue,rating) =>{
+    const newMovieElement = document.createElement('li')
+    newMovieElement.className='movie-element'
+    newMovieElement.innerHTML=`
+    <div class="movie-elemnt_image"> 
+    <img src=https://audimediacenter-a.akamaihd.net/system/production/media/87623/images/ab698ab934ad7ee485d260ff1d2569be289629dc/A1915496_x500.jpg?1582587184" alt="${title}">
+    </div>
+    <div class="movie-elemnt_info">
+    <h2>${title}</h2>
+    <p>${rating}/5</p>
+    </div>
+    `
+    const listRoot = document.getElementById("movie-list")
+    listRoot.append(newMovieElement)
+}
+
 const userInput = addMovieModal.querySelectorAll('input')
 const toggleBackdrop = () =>{
     backdrop.classList.toggle('visible')
@@ -69,6 +85,7 @@ movies.push(newMovie)
 console.log(movies)
 toggleMovieModal()
 clearMovieInputs()
+renderNewMovieElement(newMovie.title,newMovie.image,newMovie.rating)
 updateUI()
 }
 cancelAddMovieButton.addEventListener("click",cancelMovieHandler )
