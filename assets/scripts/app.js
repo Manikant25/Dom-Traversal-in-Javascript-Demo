@@ -27,7 +27,7 @@ const renderNewMovieElement = (title,imageUrlValue,rating) =>{
     newMovieElement.className='movie-element'
     newMovieElement.innerHTML=`
     <div class="movie-elemnt_image"> 
-    <img src=https://audimediacenter-a.akamaihd.net/system/production/media/87623/images/ab698ab934ad7ee485d260ff1d2569be289629dc/A1915496_x500.jpg?1582587184" alt="${title}">
+    <img src="${imageUrlValue}" alt="${title} width="420" height="420" style="vertical-align:middle">
     </div>
     <div class="movie-elemnt_info">
     <h2>${title}</h2>
@@ -42,6 +42,7 @@ const userInput = addMovieModal.querySelectorAll('input')
 const toggleBackdrop = () =>{
     backdrop.classList.toggle('visible')
 }
+
 
 //Arrow function stored in toggleMOvieModal
 const toggleMovieModal= () =>{
